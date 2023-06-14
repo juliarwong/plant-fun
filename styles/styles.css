@@ -77,3 +77,85 @@ Dark Green - #1f2d2e
 Light Green - #234534
 Orange - #ED6B55
  */
+
+ /* header toggle switch */
+
+/* toggle labels */
+.toggleLabel {
+    line-height: 40px;
+    padding-right: 100px;
+    margin: 15px 0;
+    position: relative;
+}
+
+/* hide the input checkboxes */
+[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+/* use pseudo-elements to create a switch */
+.toggleLabel::before {
+    content: "";
+    width: 80px;
+    height: 40px;
+    background-color: #1f2d2e;
+    border-radius: 100px;
+    position: absolute;
+    right: 0;
+}
+
+/* and now the switch! */
+.toggleLabel::after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    right: 45;
+    top: 5px;
+}
+
+[type="checkbox"]:checked + .toggleLabel::after {
+    right: 5px;
+}
+
+[type="checkbox"]:active + .toggleLabel::before,
+[type="checkbox"]:focus + .toggleLabel::before {
+    background: #EB6856;
+}
+
+.tabs {
+    background: #234534;
+}
+
+.tabs label {
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+}
+
+.tabs .content {
+    background-color: white;
+}
+
+.tabs input[type="radio"]{
+    position: absolute;
+    opacity: 0;
+}
+
+.content > div {
+    display: none;
+}
+
+#spider-tab:checked ~ .content .firstPlant,
+#snake-tab:checked ~ .content .secondPlant,
+#philo-tab:checked ~ .content .thirdPlant {
+    display: block;
+}
+
+.fa-angle-double-down {
+    color: #EB6856;
+}
